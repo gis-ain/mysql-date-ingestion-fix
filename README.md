@@ -10,7 +10,7 @@ and Excel’s date handling.
 ---
 
 ## Problem Statement
-During CSV ingestion, date columns were being imported as `NULL` in MySQL despite
+During CSV ingestion, date columns were being imported as `NULL` in [MySQL](https://github.com/gis-ain/mysql-date-ingestion-fix/blob/main/prefixed.jpg) despite
 appearing valid in Excel.
 
 ### Root Causes Identified
@@ -30,13 +30,17 @@ Dates were normalized at the source using Excel before export:
 =TEXT(A2,"yyyy-mm-dd")
 ```
 ---
-Values ​​were then pasted as static values ​​and exported as UTF-8 CSV.
+- Values ​​were Copied then pasted as static values in a new column next to the oldd column  ​​
 
-Outcome
+- The old column was deleted ​​
+and exported as UTF-8 CSV.
+---
 
-100% successful ingestion
+### Outcome
 
-No NULL dates
+- 100% successful ingestion
+
+- [No NULL dates](https://github.com/gis-ain/mysql-date-ingestion-fix/blob/main/refixed.jpg)
 
 
 
